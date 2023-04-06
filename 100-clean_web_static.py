@@ -8,9 +8,9 @@ from fabric.api import env, put, run, local
 import os
 
 
-env.hosts = ['<IP web-01>', '<IP web-02>']
-env.user = '<user>'
-env.key_filename = '<path to SSH private key>'
+env.hosts = ['100.26.173.94', '35.153.79.52']
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_pack():
@@ -90,4 +90,3 @@ def deploy_clean(number=0):
     deploy_success = deploy()
     do_clean(number)
     return deploy_success
-
