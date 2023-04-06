@@ -9,7 +9,7 @@ from fabric.api import env, put, run
 from fabric.operations import sudo
 
 
-env.hosts = ['<IP web-01>', '<IP web-02>']
+env.hosts = ['100.26.173.94', '35.153.79.52']
 
 
 def do_deploy(archive_path):
