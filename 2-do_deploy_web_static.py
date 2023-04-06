@@ -10,6 +10,7 @@ from fabric.operations import sudo
 
 
 env.hosts = ['100.26.173.94', '35.153.79.52']
+env.user = "ubuntu"
 
 
 def do_deploy(archive_path):
