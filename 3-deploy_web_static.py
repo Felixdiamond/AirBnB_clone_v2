@@ -14,7 +14,6 @@ env.user = 'ubuntu'
 
 def do_pack():
     """Create a tgz archive of web_static content"""
-
     try:
         if not os.path.exists("versions"):
             os.makedirs("versions")
@@ -23,13 +22,12 @@ def do_pack():
         command = "tar -cvzf {} web_static".format(file_path)
         os.system(command)
         return file_path
-    except:
+    except Exception as e:
         return None
 
 
 def do_deploy(archive_path):
     """Deploy archive to web servers"""
-
     if not os.path.exists(archive_path):
         return False
 
@@ -47,15 +45,13 @@ def do_deploy(archive_path):
         run("rm -rf /data/web_static/current")
         run("ln -s {} /data/web_static/current".format(path))
         return True
-    except:
+    except Exception as e:
         return False
 
 
 def deploy():
     """Create and distribute archive to web servers"""
-
     archive_path = do_pack()
     if archive_path is None:
         return False
     return do_deploy(archive_path)
-
